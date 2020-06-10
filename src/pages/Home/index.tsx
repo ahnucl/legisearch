@@ -27,8 +27,7 @@ const Home = () => {
                     </div>
                 </div>
             
-                <CardColumns>
-                    <Card className="teste">
+                    <Card className="teste" style={{width: '18rem'}}>
                         <Card.Body>
                             <Card.Title>Card Title</Card.Title>
                             <Card.Text>
@@ -37,34 +36,16 @@ const Home = () => {
                             </Card.Text>
                         </Card.Body>
                     </Card>
-                    <Card style={{ width: '18rem' }}>
-                        <Card.Body>
-                            <Card.Title>Card Title</Card.Title>
-                            <Card.Text>
-                            Some quick example text to build on the card title and make up the bulk of
-                            the card's content.
-                            </Card.Text>
-                        </Card.Body>
-                    </Card>
-                    <Card style={{ width: '18rem' }}>
-                        <Card.Body>
-                            <Card.Title>Card Title</Card.Title>
-                            <Card.Text>
-                            Some quick example text to build on the card title and make up the bulk of
-                            the card's content.
-                            </Card.Text>
-                        </Card.Body>
-                    </Card>
-                    <Card style={{ width: '18rem' }}>
-                        <Card.Body>
-                            <Card.Title>Card Title</Card.Title>
-                            <Card.Text>
-                            Some quick example text to build on the card title and make up the bulk of
-                            the card's content.
-                            </Card.Text>
-                        </Card.Body>
-                    </Card>
-                </CardColumns>  
+                     
+                    <div className="card" style={{width: '18rem'}}>
+                    <img src="..." className="card-img-top" alt="..."/>
+                    <div className="card-body">
+                        <h5 className="card-title">Card title</h5>
+                        <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <a href="#" className="btn btn-primary">Go somewhere</a>
+                    </div>
+                    </div>
+
                 <p>Primeira página</p>
             </div>
         </>
