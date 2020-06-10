@@ -1,0 +1,27 @@
+header{
+    height: 115px;
+    background-color: #00305C;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+}
+
+header div{
+    height: 14px;
+}
+
+header h1 {
+    width: 100%;
+    max-width: 1180px;
+    height: 45px;
+    position: relative;
+    margin: auto auto 0;
+}
+
+header .header-green1 {
+    background-color: #00694F;
+}
+
+header .header-green2 {
+    background-color: #9BBC45;
+}

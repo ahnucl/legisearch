@@ -1,11 +1,73 @@
 import React from 'react';
+import Card from 'react-bootstrap/Card';
+import CardColumns from 'react-bootstrap/CardColumns';
+
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './styles.css';
+
+import Header from '../../components/Header';
 
 const Home = () => {
     return (
-        <div>
-            <h1> LegiSearch </h1>
-            <p>Primeira página</p>
-        </div>
+        <>
+            <Header />
+            <div id="home-list">
+                <div className="filter-group">
+                    <div className="filter">
+                        <select name="uf"
+                                id="uf">
+                            <option value="0">Selecione um Estado</option>
+                        </select>
+                    </div>
+                    <div className="filter">
+                        <select name="partido"
+                                id="partido">
+                            <option value="0">Selecione um Partido</option>
+                        </select>
+                    </div>
+                </div>
+            
+                <CardColumns>
+                    <Card className="teste">
+                        <Card.Body>
+                            <Card.Title>Card Title</Card.Title>
+                            <Card.Text>
+                            Some quick example text to build on the card title and make up the bulk of
+                            the card's content.
+                            </Card.Text>
+                        </Card.Body>
+                    </Card>
+                    <Card style={{ width: '18rem' }}>
+                        <Card.Body>
+                            <Card.Title>Card Title</Card.Title>
+                            <Card.Text>
+                            Some quick example text to build on the card title and make up the bulk of
+                            the card's content.
+                            </Card.Text>
+                        </Card.Body>
+                    </Card>
+                    <Card style={{ width: '18rem' }}>
+                        <Card.Body>
+                            <Card.Title>Card Title</Card.Title>
+                            <Card.Text>
+                            Some quick example text to build on the card title and make up the bulk of
+                            the card's content.
+                            </Card.Text>
+                        </Card.Body>
+                    </Card>
+                    <Card style={{ width: '18rem' }}>
+                        <Card.Body>
+                            <Card.Title>Card Title</Card.Title>
+                            <Card.Text>
+                            Some quick example text to build on the card title and make up the bulk of
+                            the card's content.
+                            </Card.Text>
+                        </Card.Body>
+                    </Card>
+                </CardColumns>  
+                <p>Primeira página</p>
+            </div>
+        </>
     );
 };
 
