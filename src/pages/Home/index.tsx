@@ -1,7 +1,5 @@
 import React from 'react';
 
-import lasier from '../../assets/senador5533.jpg';
-
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles.css';
 
@@ -35,7 +33,7 @@ const Home = () => {
                     <SenatorCard 
                         senatorName="Lasier Martins"
                         senatorParty="PODEMOS - RS"
-                        img={lasier}
+                        img="http://www.senado.leg.br/senadores/img/fotos-oficiais/senador5533.jpg"
                     />                    
                           
                 </div>
