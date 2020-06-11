@@ -40,6 +40,7 @@ interface UF {
 }
 
 interface Senator {
+    number: number;
     name: string;
     party: string;
     img: string;
@@ -73,7 +74,8 @@ const Home = () => {
                     party: parlamentar.IdentificacaoParlamentar.SiglaPartidoParlamentar,
                     img: parlamentar.IdentificacaoParlamentar.UrlFotoParlamentar,
                     boardMember: parlamentar.IdentificacaoParlamentar.MembroMesa,
-                    leadershipMember: parlamentar.IdentificacaoParlamentar.MembroLideranca
+                    leadershipMember: parlamentar.IdentificacaoParlamentar.MembroLideranca,
+                    number: parlamentar.IdentificacaoParlamentar.CodigoParlamentar
                 })
             );
 
@@ -120,7 +122,8 @@ const Home = () => {
 
                 <div className="d-flex flex-wrap justify-content-between">
                     {senators.map( (senator) => (
-                        <SenatorCard 
+                        <SenatorCard
+                            key={senator.number} 
                             senatorName={senator.name}
                             senatorParty={senator.party}
                             img={senator.img}
