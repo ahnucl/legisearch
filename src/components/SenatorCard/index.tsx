@@ -15,21 +15,23 @@ interface Props {
 
 const SenatorCard: React.FC<Props> = ({senatorName, senatorParty, img, displayTextBox, boardMember, leadershipMember, senatorState}) => {
     return (
-        <div className="card" >    
+        <div className="card " >    
             <div className="card-body">
                 <h3 className="card-title">{senatorName}</h3>
-                <p className="card-text">{`${senatorParty} - ${senatorState}`}</p>
-                <div className="membership">
-                    <span> 
-                        {boardMember === 'Sim' ? <FiUsers/> : '' }
-                    </span>
-                    <span> 
-                    {leadershipMember === 'Sim' ?  <FiStar/> : '' }   
-                    </span>
+                <div className="">
+                    <p className="card-text">{`${senatorParty} - ${senatorState}`}</p>
+                    <div className="membership">
+                        <span> 
+                            {boardMember === 'Sim' ? <FiUsers/> : '' }
+                        </span>
+                        <span> 
+                            {leadershipMember === 'Sim' ?  <FiStar/> : '' }   
+                        </span>
+                    </div>
                 </div>
             </div>
 
-            <img src={img} className="card-img-top" alt="lasier"/>
+            <img src={img} className="card-img-top" alt={senatorName}/>
             { displayTextBox && (
                     <div className="textBox">
                         <div >Clique para visualizar</div>

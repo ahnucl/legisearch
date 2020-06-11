@@ -9,6 +9,10 @@
     transition: background-color 0.4s;
 }
 
+.card-body {
+    padding: 20px 20px 0;
+}
+
 .card img {
     height: 65%;
     width: 100%;
@@ -66,5 +70,6 @@
 }
 
 .membership {
+    flex: 1;
     margin-bottom: 15px;
 }

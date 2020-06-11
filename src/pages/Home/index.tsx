@@ -1,4 +1,5 @@
 import React, { useState, useEffect, ChangeEvent } from 'react';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -54,7 +55,7 @@ const Home = () => {
     const [ filteredUf, setFilteredUf ] = useState('0');
     const [ filteredParty, setFilteredParty ] = useState('')
     const [ senators, setSenators ] = useState<Senator[]>([]);
-    const [ filteredSenators, setFilteredSenators ] = useState<Senator[]>([]);
+
     /**
      * Carregando UFs da API do IBGE
      */
@@ -83,23 +84,17 @@ const Home = () => {
             );
 
             setSenators(senators);
-            setFilteredSenators(senators);
         })
     }, []);
 
     function handleUfChange(event: ChangeEvent<HTMLSelectElement>) {
         const ufToFilter = event.target.value;
         setFilteredUf(ufToFilter);
-
-        //const filter = senators.filter((senator) => senator.state === ufToFilter);
-        // filterSenators();
     }
     
     function handleInputChange(event: ChangeEvent<HTMLInputElement>) {
         const filteredText = event.target.value;
         setFilteredParty(filteredText);
-
-        //const filter = senators.filter((senator) => senator.party.match(filteredText));
     }
 
     function renderFilteredSenators() {
@@ -109,16 +104,18 @@ const Home = () => {
             .filter(senator => filteredParty === '' || (new RegExp(filteredParty, 'i')).test(senator.party))
             
             // Adicionar filtros acima
-            .map( (senator) => (    
-            <SenatorCard
-                key={senator.number} 
-                senatorName={senator.name}
-                senatorParty={senator.party}
-                img={senator.img}
-                boardMember={senator.boardMember}
-                leadershipMember={senator.leadershipMember}
-                senatorState={senator.state}
+            .map( (senator) => (  
+            <Link to={`/detail?${senator.number}`} >
+                <SenatorCard
+                    key={senator.number} 
+                    senatorName={senator.name}
+                    senatorParty={senator.party}
+                    img={senator.img}
+                    boardMember={senator.boardMember}
+                    leadershipMember={senator.leadershipMember}
+                    senatorState={senator.state}
                 />
+            </Link>
         ));
     }
     /**
