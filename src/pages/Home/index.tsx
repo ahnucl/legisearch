@@ -74,7 +74,7 @@ const Home = () => {
                 ( parlamentar ) => ({
                     name: parlamentar.IdentificacaoParlamentar.NomeParlamentar,
                     party: parlamentar.IdentificacaoParlamentar.SiglaPartidoParlamentar,
-                    img: parlamentar.IdentificacaoParlamentar.UrlFotoParlamentar,
+                    img: 'https'+parlamentar.IdentificacaoParlamentar.UrlFotoParlamentar.slice(4), // Solução ruim? Melhorar!
                     boardMember: parlamentar.IdentificacaoParlamentar.MembroMesa,
                     leadershipMember: parlamentar.IdentificacaoParlamentar.MembroLideranca,
                     number: parlamentar.IdentificacaoParlamentar.CodigoParlamentar,
