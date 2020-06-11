@@ -46,13 +46,15 @@ interface Senator {
     img: string;
     boardMember: string;
     leadershipMember: string;
+    state: string;
 }
 
 const Home = () => {
     const [ ufs, setUfs ] = useState<UF[]>([]);
     const [ filteredUf, setFilteredUf ] = useState('0');
+    const [ filteredParty, setFilteredParty ] = useState('')
     const [ senators, setSenators ] = useState<Senator[]>([]);
-
+    const [ filteredSenators, setFilteredSenators ] = useState<Senator[]>([]);
     /**
      * Carregando UFs da API do IBGE
      */
@@ -75,19 +77,50 @@ const Home = () => {
                     img: parlamentar.IdentificacaoParlamentar.UrlFotoParlamentar,
                     boardMember: parlamentar.IdentificacaoParlamentar.MembroMesa,
                     leadershipMember: parlamentar.IdentificacaoParlamentar.MembroLideranca,
-                    number: parlamentar.IdentificacaoParlamentar.CodigoParlamentar
+                    number: parlamentar.IdentificacaoParlamentar.CodigoParlamentar,
+                    state: parlamentar.IdentificacaoParlamentar.UfParlamentar
                 })
             );
 
             setSenators(senators);
+            setFilteredSenators(senators);
         })
     }, []);
 
     function handleUfChange(event: ChangeEvent<HTMLSelectElement>) {
         const ufToFilter = event.target.value;
         setFilteredUf(ufToFilter);
+
+        //const filter = senators.filter((senator) => senator.state === ufToFilter);
+        // filterSenators();
     }
     
+    function handleInputChange(event: ChangeEvent<HTMLInputElement>) {
+        const filteredText = event.target.value;
+        setFilteredParty(filteredText);
+
+        //const filter = senators.filter((senator) => senator.party.match(filteredText));
+    }
+
+    function renderFilteredSenators() {
+   
+        return senators
+            .filter(senator => filteredUf === '0' || senator.state === filteredUf )
+            .filter(senator => filteredParty === '' || (new RegExp(filteredParty, 'i')).test(senator.party))
+            
+            // Adicionar filtros acima
+            .map( (senator) => (    
+            <SenatorCard
+                key={senator.number} 
+                senatorName={senator.name}
+                senatorParty={senator.party}
+                img={senator.img}
+                boardMember={senator.boardMember}
+                leadershipMember={senator.leadershipMember}
+                senatorState={senator.state}
+                />
+        ));
+    }
     /**
      * TODO: sempre que mudar o filtro de UF, atualizar um array que tem os senadores filtrados e renderizar esse array apenas
      */
@@ -111,27 +144,17 @@ const Home = () => {
                         </select>
                     </div>
                     <div className="form-group">
-                        <select name="partido"
+                        <input  name="partido"
                                 id="partido"
-                                className="form-control">
-                            <option value="0">Selecione um Partido</option>
-                            
-                        </select>
+                                className="form-control"
+                                placeholder="Selecione um Partido"
+                                onChange={handleInputChange}
+                        />
                     </div>
                 </div>
 
-                <div className="d-flex flex-wrap justify-content-between">
-                    {senators.map( (senator) => (
-                        <SenatorCard
-                            key={senator.number} 
-                            senatorName={senator.name}
-                            senatorParty={senator.party}
-                            img={senator.img}
-                            boardMember={senator.boardMember}
-                            leadershipMember={senator.leadershipMember}
-                        />                    
-                    ))}
-                          
+                <div className="d-flex flex-wrap justify-content-center">
+                    {renderFilteredSenators()}
                 </div>
             
             </div>

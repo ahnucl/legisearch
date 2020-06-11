@@ -2,10 +2,9 @@
     background-color: #CDCDCD;
     width: 200px;
     height: 305px;
-    /* margin: 0 12.5px; */
+    margin: 0 15px 60px;
     border-radius: 20px;
     overflow: hidden;
-    margin-bottom: 60px;
     border: none;
     transition: background-color 0.4s;
 }
