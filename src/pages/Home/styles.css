@@ -3,13 +3,10 @@
     max-width: 1240px;
     margin: 0 auto;
     padding: 0 30px;
+    align-items: center;
 }
 
-.teste {
-    background-color: red;
-}
-
-.card {
-    background-color: cornflowerblue;
-    width: 12rem;
+.filter-group {
+    margin: 40px 0;
+    max-width: 310px;
 }
