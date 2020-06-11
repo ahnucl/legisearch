@@ -69,7 +69,7 @@ const Home = () => {
      * Buscando lista de senadores em exercício
      */
     useEffect(()=>{
-        axios.get<SenadorListaResponse>('http://legis.senado.leg.br/dadosabertos/senador/lista/atual.json').then( response => {
+        axios.get<SenadorListaResponse>('https://legis.senado.leg.br/dadosabertos/senador/lista/atual.json').then( response => {
             const senators = response.data.ListaParlamentarEmExercicio.Parlamentares.Parlamentar.map(
                 ( parlamentar ) => ({
                     name: parlamentar.IdentificacaoParlamentar.NomeParlamentar,
