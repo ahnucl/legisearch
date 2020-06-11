@@ -36,27 +36,7 @@ const Home = () => {
                         senatorName="Lasier Martins"
                         senatorParty="PODEMOS - RS"
                         img={lasier}
-                    />
-                    <SenatorCard 
-                        senatorName="Lasier Martins"
-                        senatorParty="PODEMOS - RS"
-                        img={lasier}
-                    />
-                    <SenatorCard 
-                        senatorName="Lasier Martins"
-                        senatorParty="PODEMOS - RS"
-                        img={lasier}
-                    />
-                    <SenatorCard 
-                        senatorName="Lasier Martins"
-                        senatorParty="PODEMOS - RS"
-                        img={lasier}
-                    />
-                    <SenatorCard 
-                        senatorName="Lasier Martins"
-                        senatorParty="PODEMOS - RS"
-                        img={lasier}
-                    />
+                    />                    
                           
                 </div>
             

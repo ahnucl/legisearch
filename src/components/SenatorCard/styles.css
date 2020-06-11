@@ -31,7 +31,7 @@
 .textBox div {
     background-color: #4E7EAB;
     color: #FFF;
-    font-weight: 300px;
+    font-weight: 300;
     font-size: 16px;
     padding: 5px 15px;
     border-radius: 20px;
@@ -53,7 +53,7 @@
 
 .card-body h3 {
     color: #4E7EAB;
-    font-weight: 500px;
+    font-weight: 500;
     text-transform: capitalize;
     font-variant: small-caps;
     font-size: 36px;
@@ -61,7 +61,7 @@
 }
 
 .card-body p {
-    font-weight: 300px;
+    font-weight: 300;
     font-size: 24px;
     padding-left: 5px;
 }
