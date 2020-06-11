@@ -43,6 +43,8 @@ interface Senator {
     name: string;
     party: string;
     img: string;
+    boardMember: string;
+    leadershipMember: string;
 }
 
 const Home = () => {
@@ -65,7 +67,17 @@ const Home = () => {
      */
     useEffect(()=>{
         axios.get<SenadorListaResponse>('http://legis.senado.leg.br/dadosabertos/senador/lista/atual.json').then( response => {
-            console.log(response.data.ListaParlamentarEmExercicio.Parlamentares.Parlamentar  ); // <- array
+            const senators = response.data.ListaParlamentarEmExercicio.Parlamentares.Parlamentar.map(
+                ( parlamentar ) => ({
+                    name: parlamentar.IdentificacaoParlamentar.NomeParlamentar,
+                    party: parlamentar.IdentificacaoParlamentar.SiglaPartidoParlamentar,
+                    img: parlamentar.IdentificacaoParlamentar.UrlFotoParlamentar,
+                    boardMember: parlamentar.IdentificacaoParlamentar.MembroMesa,
+                    leadershipMember: parlamentar.IdentificacaoParlamentar.MembroLideranca
+                })
+            );
+
+            setSenators(senators);
         })
     }, []);
 
@@ -107,12 +119,15 @@ const Home = () => {
                 </div>
 
                 <div className="d-flex flex-wrap justify-content-between">
-
-                    <SenatorCard 
-                        senatorName="Lasier Martins"
-                        senatorParty="PODEMOS - RS"
-                        img="http://www.senado.leg.br/senadores/img/fotos-oficiais/senador5533.jpg"
-                    />                    
+                    {senators.map( (senator) => (
+                        <SenatorCard 
+                            senatorName={senator.name}
+                            senatorParty={senator.party}
+                            img={senator.img}
+                            boardMember={senator.boardMember}
+                            leadershipMember={senator.leadershipMember}
+                        />                    
+                    ))}
                           
                 </div>
             
