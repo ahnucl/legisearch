@@ -5,7 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles.css';
 
 import Header from '../../components/Header';
-import SenatorCard from '../../components/SenatorCard'
+import SenatorCard from '../../components/SenatorCard';
 
 interface IBGEUFResponse {
     sigla: string;
