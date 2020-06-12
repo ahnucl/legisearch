@@ -97,8 +97,7 @@
     margin: 15px
 }
 
-.comissoes ul li:first-child {
+.comissoes ul li.titulo {
     background-color: var(--theme-grey);
     font-weight: 500;
-
 }

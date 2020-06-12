@@ -140,25 +140,29 @@ const Detail: React.FC<Props> = (props) => {
 
                 <div className="comissoes accordion" >
                     <ul className="list-group titular">
-                        <li className="list-group-item mb-0" id="headingOne" data-toggle="collapse" data-target=".collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        <li className="list-group-item mb-0 titulo" id="headingOne" data-toggle="collapse" data-target=".collapseOne" aria-expanded="true" aria-controls="collapseOne">
                             Comissões como Titular ({comissoesTitular.length}) <span><FiChevronDown/></span>
                         </li>
-                        {comissoesTitular.map( comissao => (
-                            <li key={comissao.CodigoComissao} className="collapseOne list-group-item collapse show" aria-labelledby="headingOne" data-parent=".titular">
-                                {`${comissao.NomeComissao} - ${comissao.SiglaComissao}`}
-                            </li>
-                        ))}                   
+                        <div className="collapseOne collapse show">
+                            {comissoesTitular.map( comissao => (
+                                <li key={comissao.CodigoComissao} className="list-group-item " aria-labelledby="headingOne" data-parent=".titular">
+                                    {`${comissao.NomeComissao} - ${comissao.SiglaComissao}`}
+                                </li>
+                            ))}                   
+                        </div>
                     </ul>
 
                     <ul className="list-group suplente">
-                        <li className="list-group-item mb-0" id="headingOne" data-toggle="collapse" data-target=".collapseTwo" aria-expanded="true" aria-controls="collapseOne">
+                        <li className="list-group-item mb-0 titulo" id="headingOne" data-toggle="collapse" data-target=".collapseTwo" aria-expanded="true" aria-controls="collapseOne">
                             Comissões como Suplente ({comissoesSuplente.length}) <span><FiChevronDown/></span>
                         </li>
-                        {comissoesSuplente.map( comissao => (
-                            <li key={comissao.CodigoComissao} className="collapseTwo list-group-item collapse show" aria-labelledby="headingOne" data-parent=".suplente">
-                                {`${comissao.NomeComissao} - ${comissao.SiglaComissao}`}
-                            </li>
-                        ))}
+                        <div className="collapseTwo collapse show">
+                            {comissoesSuplente.map( comissao => (
+                                <li key={comissao.CodigoComissao} className=" list-group-item " aria-labelledby="headingOne" data-parent=".suplente">
+                                    {`${comissao.NomeComissao} - ${comissao.SiglaComissao}`}
+                                </li>
+                            ))}
+                        </div>
                     </ul>
                 </div>
 
