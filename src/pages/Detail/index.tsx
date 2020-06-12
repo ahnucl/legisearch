@@ -91,7 +91,7 @@ const Detail: React.FC<Props> = (props) => {
                     <Link to="/"><FiArrowLeft/> Voltar </Link>
                 </div>
                 <div className="panel d-flex flex-wrap justify-content-between">
-                    <div>
+                    <div className="img-container">
                         <img src={img} alt={name}></img>
                     </div>
                     {/* <div className="gap"></div> */}
