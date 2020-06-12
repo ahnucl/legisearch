@@ -55,7 +55,8 @@ interface Senator {
 const Home = () => {
     const [ ufs, setUfs ] = useState<UF[]>([]);
     const [ filteredUf, setFilteredUf ] = useState('0');
-    const [ filteredParty, setFilteredParty ] = useState('')
+    const [ filteredParty, setFilteredParty ] = useState('');
+    const [ filteredName, setFilteredName ] = useState('');
     const [ senators, setSenators ] = useState<Senator[]>([]);
 
     /**
@@ -97,9 +98,14 @@ const Home = () => {
         setFilteredUf(ufToFilter);
     }
     
-    function handleInputChange(event: ChangeEvent<HTMLInputElement>) {
+    function handleInputPartyChange(event: ChangeEvent<HTMLInputElement>) {
         const filteredText = event.target.value;
         setFilteredParty(filteredText);
+    }
+
+    function handleInputNameChange(event: ChangeEvent<HTMLInputElement>){
+        const filteredText = event.target.value;
+        setFilteredName(filteredText);
     }
 
     function renderFilteredSenators() {
@@ -107,6 +113,7 @@ const Home = () => {
         return senators
             .filter(senator => filteredUf === '0' || senator.state === filteredUf )
             .filter(senator => filteredParty === '' || (new RegExp(filteredParty, 'i')).test(senator.party))
+            .filter(senator => filteredName === '0' || (new RegExp(filteredName,'i').test(senator.name)))
             // Adicionar mais filtros aqui
             
             .map( senator => (  
@@ -133,8 +140,8 @@ const Home = () => {
         <>
             <Header />
             <div id="home-list">
-                <div className="filter-group">
-                    <div className="form-group">
+                <div className="filter-group row">
+                    <div className="form-group col-sm-3">
                         <select name="uf"
                                 id="uf"
                                 className="form-control"
@@ -146,12 +153,20 @@ const Home = () => {
                             )}
                         </select>
                     </div>
-                    <div className="form-group">
+                    <div className="form-group col-sm-3">
                         <input  name="partido"
                                 id="partido"
                                 className="form-control"
                                 placeholder="Selecione um Partido"
-                                onChange={handleInputChange}
+                                onChange={handleInputPartyChange}
+                        />
+                    </div>
+                    <div className="form-group col-sm-3">
+                        <input  name="nome"
+                                id="nome"
+                                className="form-control"
+                                placeholder="Digite o nome"
+                                onChange={handleInputNameChange}
                         />
                     </div>
                 </div>
