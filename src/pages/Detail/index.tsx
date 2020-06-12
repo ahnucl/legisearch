@@ -91,7 +91,9 @@ const Detail: React.FC<Props> = (props) => {
                     <Link to="/"><FiArrowLeft/> Voltar </Link>
                 </div>
                 <div className="panel d-flex flex-wrap justify-content-between">
-                    <img src={img} alt={name}></img>
+                    <div>
+                        <img src={img} alt={name}></img>
+                    </div>
                     {/* <div className="gap"></div> */}
                     <div className="dados">
                         <h3 className="row">{`Senador ${name}`}</h3>
