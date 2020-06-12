@@ -23,6 +23,7 @@ Mas o app também se encontra disponível em [https://legisearch.herokuapp.com/]
 - create-react-app: inicialização do projeto
 - git: controle de versão
 - axios: requisições http
+- expressões regulares para filtros de texto
 - typescript: recursos de tipagem para o JS
 - bootstrap: alguns componentes e classes
 - heroku: hospedagem/ci
