@@ -118,8 +118,8 @@ const Detail: React.FC<Props> = (props) => {
                         
                     </div>
                 </div>
-    {/** Estrutura inicial */}
-    {/*            
+    {/** Estrutura inicial */
+    /*            
                 <div className="comissoes">
                     <ul className="list-group">
                         <li className="list-group-item">Comissões como Titular (4)</li>

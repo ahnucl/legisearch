@@ -2,7 +2,6 @@ import React, { useState, useEffect, ChangeEvent } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
-// import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles.css';
 
 import Header from '../../components/Header';
@@ -108,26 +107,26 @@ const Home = () => {
         return senators
             .filter(senator => filteredUf === '0' || senator.state === filteredUf )
             .filter(senator => filteredParty === '' || (new RegExp(filteredParty, 'i')).test(senator.party))
+            // Adicionar mais filtros aqui
             
-            // Adicionar filtros acima
-            .map( (senator) => (  
+            .map( senator => (  
             // <Link to={`/detail?${senator.senatorNumber}`} // < consultar novamente na página
-            <Link to={{                                 // < dados passados como estado
-                pathname: '/detail',
-                state: senator    
-                }} 
-                  key={senator.senatorNumber}
-            >
-                <SenatorCard     
-                    senatorName={senator.name}
-                    senatorParty={senator.party}
-                    img={senator.img}
-                    boardMember={senator.boardMember}
-                    leadershipMember={senator.leadershipMember}
-                    senatorStateInitials={senator.state}
-                />
-            </Link>
-        ));
+                <Link to={{                                 // < dados passados como estado
+                    pathname: '/detail',
+                    state: senator    
+                    }} 
+                    key={senator.senatorNumber}
+                >
+                    <SenatorCard     
+                        senatorName={senator.name}
+                        senatorParty={senator.party}
+                        img={senator.img}
+                        boardMember={senator.boardMember}
+                        leadershipMember={senator.leadershipMember}
+                        senatorStateInitials={senator.state}
+                    />
+                </Link>
+            ));
     }
 
     return (
