@@ -121,4 +121,18 @@
 .comissoes ul li.titulo {
     background-color: var(--theme-grey);
     font-weight: 500;
+    display: inline-flex;
+    justify-content: space-between;
+    transition: background-color 0.2s;
+}
+
+.comissoes ul li.titulo span {
+    font-size: 24px;
+    vertical-align: middle;
+    display: inline-flex;
+
+}
+
+.comissoes ul li.titulo:hover {
+    background-color: #CDCDCD;
 }

@@ -1,44 +1,54 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Apresentação: LegiSearch
 
-## Available Scripts
+![barra do app](/docs/bar.png)
 
-In the project directory, you can run:
+## Introdução
 
-### `yarn start`
+Esta pequena aplicação tem por objetivo listar os Senadores 
+da República em exercício, bem como permitir visualizar algumas informações sobre os mesmos.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+É possível baixar o repositório, instalá-lo e rodar localmente com:
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+```(shell)
+npm install -- ou yarn install
 
-### `yarn test`
+npm start -- ou yarn start
+```
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Mas o app também se encontra disponível em [https://legisearch.herokuapp.com/](https://legisearch.herokuapp.com/)
 
-### `yarn build`
+## Recursos usados
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- React
+- create-react-app: inicialização do projeto
+- git: controle de versão
+- axios: requisições http
+- expressões regulares para filtros de texto
+- typescript: recursos de tipagem para o JS
+- bootstrap: alguns componentes e classes
+- heroku: hospedagem/ci
+- figma.com: projeto inicial do layout (mudou bastante!) [https://www.figma.com/file/42RmmwEIO0pS0R8msoagMh/LegiSearch?node-id=0%3A1](https://www.figma.com/file/42RmmwEIO0pS0R8msoagMh/LegiSearch?node-id=0%3A1)
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+### APIs
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Foram utilizadas apis de dados abertos do legislativo para obter dados em formato JSON.
 
-### `yarn eject`
+- Lista de Senadores em exercício: [http://legis.senado.leg.br/dadosabertos/senador/lista/atual.json](http://legis.senado.leg.br/dadosabertos/senador/lista/atual.json)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- Lista de comissões de um dado Senador: [http://legis.senado.leg.br/dadosabertos/senador/5322/comissoes.json](http://legis.senado.leg.br/dadosabertos/senador/5322/comissoes.json)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Também foi utilizada api do IBGE para obter as unidades federativas:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+- Lista das unidades federativas: [https://servicodados.ibge.gov.br/api/v1/localidades/estados](https://servicodados.ibge.gov.br/api/v1/localidades/estados)
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## O que poderia ser melhorado
 
-## Learn More
+O maior desafio foi a _responsividade_, que inclusive não deve estar no melhor que poderia ser. A familiaridade com o _bootstrap_ também é algo a melhorar para poder extrair o melhor dos recursos e responsividade do mesmo.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Outras funcionalidades que podem ser implementadas
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- Envio de e-mail para o parlamentar a partir do app
+- Adicionar animações durante as mudanças na lista de Senadores
+- Adicionar aos cards dos Senadores algum overlay de carregamento
+
+---
