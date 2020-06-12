@@ -16,6 +16,11 @@ body {
     font-weight: 300;
     background-color: var(--theme-grey);
     overflow: scroll;
+    -ms-overflow-style: none;
+}
+
+body::-webkit-scrollbar {
+    display: none;
 }
 
 h1 {
