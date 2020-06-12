@@ -26,6 +26,7 @@ Mas o app também se encontra disponível em [https://legisearch.herokuapp.com/]
 - typescript: recursos de tipagem para o JS
 - bootstrap: alguns componentes e classes
 - heroku: hospedagem/ci
+- figma.com: projeto inicial do layout (mudou bastante!) [https://www.figma.com/file/42RmmwEIO0pS0R8msoagMh/LegiSearch?node-id=0%3A1](https://www.figma.com/file/42RmmwEIO0pS0R8msoagMh/LegiSearch?node-id=0%3A1)
 
 ### APIs
 
