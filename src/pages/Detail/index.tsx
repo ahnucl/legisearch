@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { FiArrowLeft, FiUsers, FiStar, FiChevronDown } from 'react-icons/fi';
+import { FiArrowLeft, FiUsers, FiStar, FiChevronDown, FiChevronUp } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
@@ -57,11 +57,13 @@ interface Comissao {
         DescricaoParticipacao: string;
         DataFim: string;
     }
-
+    
 const Detail: React.FC<Props> = (props) => {
     const [ comissoesTitular, setComissoesTitular ] = useState<Comissao[]>([]);
     const [ comissoesSuplente, setComissoesSuplente ] = useState<Comissao[]>([]);
-    
+    const [ iconTitular, setIconTitular ] = useState(<FiChevronUp/>); // o TS não está acusando aqui, mas seria interessante descobrir que tipo é esse
+    const [ iconSuplente, setIconSuplente ] = useState(<FiChevronUp/>);
+        
     const { senatorNumber, name, completeName, party, img, boardMember, leadershipMember, state, email, officialSite } = props.location.state;
 
     useEffect(() => {
@@ -120,30 +122,18 @@ const Detail: React.FC<Props> = (props) => {
                         
                     </div>
                 </div>
-    {/** Estrutura inicial */
-    /*            
-                <div className="comissoes">
-                    <ul className="list-group">
-                        <li className="list-group-item">Comissões como Titular (4)</li>
-                        <li className="list-group-item">Dapibus ac facilisis in</li>
-                        <li className="list-group-item">Morbi leo risus</li>
-                        <li className="list-group-item">Porta ac consectetur ac</li>
-                        <li className="list-group-item">Vestibulum at eros</li>
-                    </ul>
-
-                    <ul className="list-group">
-                        <li className="list-group-item">Comissoes como Suplente (3)</li>
-                        <li className="list-group-item">Dapibus ac facilisis in</li>
-                        <li className="list-group-item">Morbi leo risus</li>
-                        <li className="list-group-item">Porta ac consectetur ac</li>
-                    </ul>
-                </div> 
-     */}
-
+  
                 <div className="comissoes accordion" >
                     <ul className="list-group titular">
-                        <li className="list-group-item mb-0 titulo" id="headingOne" data-toggle="collapse" data-target=".collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                            Comissões como Titular ({comissoesTitular.length}) <span><FiChevronDown/></span>
+                        <li className="list-group-item mb-0 titulo"
+                            id="headingOne" 
+                            data-toggle="collapse" 
+                            data-target=".collapseOne" 
+                            aria-expanded="true" 
+                            aria-controls="collapseOne"
+                            onClick={() => { iconTitular.type.displayName === 'FiChevronUp' ? setIconTitular(<FiChevronDown/>) : setIconTitular(<FiChevronUp/>)}}
+                        >   
+                            Comissões como Titular ({comissoesTitular.length}) <span>{iconTitular}</span>
                         </li>
                         <div className="collapseOne collapse show">
                             {comissoesTitular.map( comissao => (
@@ -155,8 +145,15 @@ const Detail: React.FC<Props> = (props) => {
                     </ul>
 
                     <ul className="list-group suplente">
-                        <li className="list-group-item mb-0 titulo" id="headingOne" data-toggle="collapse" data-target=".collapseTwo" aria-expanded="true" aria-controls="collapseOne">
-                            Comissões como Suplente ({comissoesSuplente.length}) <span><FiChevronDown/></span>
+                        <li className="list-group-item mb-0 titulo" 
+                            id="headingOne" 
+                            data-toggle="collapse" 
+                            data-target=".collapseTwo" 
+                            aria-expanded="true" 
+                            aria-controls="collapseOne"
+                            onClick={()=>{ iconSuplente.type.displayName === 'FiChevronUp' ? setIconSuplente(<FiChevronDown/>) : setIconSuplente(<FiChevronUp/>)}}
+                        >
+                            Comissões como Suplente ({comissoesSuplente.length}) <span>{iconSuplente}</span>
                         </li>
                         <div className="collapseTwo collapse show">
                             {comissoesSuplente.map( comissao => (
