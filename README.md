@@ -12,7 +12,7 @@ da República em exercício, bem como permitir visualizar algumas informações 
 ```(shell)
 npm install -- ou yarn install
 
-npm run start -- ou yarn start
+npm start -- ou yarn start
 ```
 
 Mas o app também se encontra disponível em [https://legisearch.herokuapp.com/](https://legisearch.herokuapp.com/)
