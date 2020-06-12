@@ -2,7 +2,7 @@ import React, { useState, useEffect, ChangeEvent } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
-import 'bootstrap/dist/css/bootstrap.min.css';
+// import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles.css';
 
 import Header from '../../components/Header';
@@ -43,11 +43,14 @@ interface UF {
 interface Senator {
     number: number;
     name: string;
+    completeName: string;
     party: string;
     img: string;
     boardMember: string;
     leadershipMember: string;
     state: string;
+    email: string;
+    officialSite: string;
 }
 
 const Home = () => {
@@ -74,12 +77,15 @@ const Home = () => {
             const senators = response.data.ListaParlamentarEmExercicio.Parlamentares.Parlamentar.map(
                 ( parlamentar ) => ({
                     name: parlamentar.IdentificacaoParlamentar.NomeParlamentar,
+                    completeName: parlamentar.IdentificacaoParlamentar.NomeCompletoParlamentar,
                     party: parlamentar.IdentificacaoParlamentar.SiglaPartidoParlamentar,
                     img: 'https'+parlamentar.IdentificacaoParlamentar.UrlFotoParlamentar.slice(4), // Solução ruim? Melhorar!
                     boardMember: parlamentar.IdentificacaoParlamentar.MembroMesa,
                     leadershipMember: parlamentar.IdentificacaoParlamentar.MembroLideranca,
                     number: parlamentar.IdentificacaoParlamentar.CodigoParlamentar,
-                    state: parlamentar.IdentificacaoParlamentar.UfParlamentar
+                    state: parlamentar.IdentificacaoParlamentar.UfParlamentar,
+                    email: parlamentar.IdentificacaoParlamentar.EmailParlamentar,
+                    officialSite: parlamentar.IdentificacaoParlamentar.UrlPaginaParlamentar
                 })
             );
 
@@ -105,23 +111,24 @@ const Home = () => {
             
             // Adicionar filtros acima
             .map( (senator) => (  
-            <Link to={`/detail?${senator.number}`} >
-                <SenatorCard
-                    key={senator.number} 
+            // <Link to={`/detail?${senator.number}`} // < consultar novamente na página
+            <Link to={{                                 // < dados passados como estado
+                pathname: '/detail',
+                state: senator    
+                }} 
+                  key={senator.number}
+            >
+                <SenatorCard     
                     senatorName={senator.name}
                     senatorParty={senator.party}
                     img={senator.img}
                     boardMember={senator.boardMember}
                     leadershipMember={senator.leadershipMember}
-                    senatorState={senator.state}
+                    senatorStateInitials={senator.state}
                 />
             </Link>
         ));
     }
-    /**
-     * TODO: sempre que mudar o filtro de UF, atualizar um array que tem os senadores filtrados e renderizar esse array apenas
-     */
-
 
     return (
         <>

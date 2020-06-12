@@ -1,6 +1,6 @@
 header{
     height: 115px;
-    background-color: #00305C;
+    background-color: var(--theme-blue);
     display: flex;
     flex-direction: column;
     margin: 0 auto;
@@ -19,9 +19,9 @@ header h1 {
 }
 
 header .header-green1 {
-    background-color: #00694F;
+    background-color: var(--theme-green1);
 }
 
 header .header-green2 {
-    background-color: #9BBC45;
+    background-color: var(--theme-green2);
 }

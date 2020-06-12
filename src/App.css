@@ -1,3 +1,10 @@
+:root {
+    --theme-blue: #00305C;
+    --theme-grey: #F5F5F5;
+    --theme-green1: #00694F;
+    --theme-green2: #9BBC45;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -7,12 +14,12 @@
 body {
     font-family: Roboto, Arial, Helvetica, sans-serif;
     font-weight: 300;
-    background-color: #F5F5F5;
+    background-color: var(--theme-grey);
 }
 
 h1 {
     font-family: Ubuntu;
     font-size: 48px;
     font-weight: 400;
-    color: #F5F5F5;
+    color: var(--theme-grey);
 }

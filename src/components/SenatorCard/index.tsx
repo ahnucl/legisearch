@@ -10,16 +10,16 @@ interface Props {
     displayTextBox?:boolean;
     boardMember: string;
     leadershipMember: string;
-    senatorState: string;
+    senatorStateInitials: string;
 }
 
-const SenatorCard: React.FC<Props> = ({senatorName, senatorParty, img, displayTextBox, boardMember, leadershipMember, senatorState}) => {
+const SenatorCard: React.FC<Props> = ({senatorName, senatorParty, img, displayTextBox, boardMember, leadershipMember, senatorStateInitials}) => {
     return (
-        <div className="card " >    
+        <div className="senatorCard card" >    
             <div className="card-body">
                 <h3 className="card-title">{senatorName}</h3>
                 <div className="">
-                    <p className="card-text">{`${senatorParty} - ${senatorState}`}</p>
+                    <p className="card-text">{`${senatorParty} - ${senatorStateInitials}`}</p>
                     <div className="membership">
                         <span> 
                             {boardMember === 'Sim' ? <FiUsers/> : '' }

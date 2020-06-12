@@ -1,0 +1,104 @@
+#detail-page {
+    width: 100%;
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 0 30px;
+    align-items: center;
+}
+
+.voltar a {
+    color: var(--theme-blue);
+    text-decoration:  none;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    height: 40px;
+}
+
+.voltar a svg {
+    color: var(--theme-green1);
+    margin-right: 10px;
+}
+
+.panel {
+
+}
+
+.panel img {
+    max-width: 100%;
+    height: auto;
+}
+
+.dados {
+    max-height: 475px;
+    max-width: 650px;
+    flex: 1;
+    padding: 20px 0;
+    margin: 0 5px;
+}
+
+.dados h3 {
+    font-weight: 500;
+    color: var(--theme-grey);
+    background-color: #4E7EAB;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 60px;
+    font-size: 36px;
+    padding: 5px;
+    width: 100%;
+}
+
+.gap {
+    flex: 0 1 30px;
+}
+
+.nomeSenador {
+    padding: 7px 15px;
+    font-weight: 500;
+    font-size: 30px;
+}
+
+#detail-page .membership {
+    font-size: 24px;
+    margin-bottom: 50px;
+    display: flex;
+    justify-content: center;
+}
+
+#detail-page .membership span {
+    margin: 0 10px;
+}
+
+#detail-page .membership .texto {
+    background-color: #fff;
+    margin: 10px;
+    border-radius: 10px;
+}
+
+.texto {
+    padding: 7px 15px;
+    font-weight: 300;
+    font-size: 24px;
+}
+
+.texto a {
+    font-style: italic;
+    color: #4E7EAB;
+    padding-left: 5px;
+}
+.comissoes {
+    margin-top: 25px;
+}
+
+.comissoes ul {
+    border-radius: 10px;
+    margin: 15px
+}
+
+.comissoes ul li:first-child {
+    background-color: var(--theme-grey);
+    font-weight: 500;
+
+}
