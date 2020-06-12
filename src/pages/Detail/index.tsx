@@ -116,7 +116,7 @@ const Detail: React.FC<Props> = (props) => {
                         <div className="nomeSenador row">{completeName}</div>
                         <div className="texto row">{`${party} (${state})`}</div>
                         <div className="texto row">Acesse a <a href={officialSite} target="_blank" rel="noopener noreferrer"> Página Oficial</a></div>
-                        <div className="texto row">{email}</div>
+                        <div className="texto texto-email row">{email}</div>
                         
                     </div>
                 </div>
