@@ -89,8 +89,9 @@ const Home = () => {
                     officialSite: parlamentar.IdentificacaoParlamentar.UrlPaginaParlamentar
                 })
             );
-            // TODO: parties contém valores repetidos, ajustar isso
-            const parties = senators.map(senator => senator.party);
+            
+            const partiesWithRepeat = senators.map(senator => senator.party)
+            const parties = partiesWithRepeat.filter( (item, index) =>  partiesWithRepeat.indexOf(item) === index );
             
             setSenators(senators);
             setParties(parties);
