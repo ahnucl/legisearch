@@ -90,8 +90,8 @@ const Home = () => {
                 })
             );
             
-            const partiesWithRepeat = senators.map(senator => senator.party)
-            const parties = partiesWithRepeat.filter( (item, index) =>  partiesWithRepeat.indexOf(item) === index );
+            const parties = senators.map(senator => senator.party)
+                                    .filter( (item,index,arr) => (arr.indexOf(item) === index));
             
             setSenators(senators);
             setParties(parties);
