@@ -65,7 +65,7 @@ const Detail: React.FC<Props> = (props) => {
     const { senatorNumber, name, completeName, party, img, boardMember, leadershipMember, state, email, officialSite } = props.location.state;
 
     useEffect(() => {
-        axios.get<ComissaoResponse>(`http://legis.senado.leg.br/dadosabertos/senador/${senatorNumber}/comissoes.json`).then( response => {
+        axios.get<ComissaoResponse>(`https://legis.senado.leg.br/dadosabertos/senador/${senatorNumber}/comissoes.json`).then( response => {
             
             const comissoes = response.data.MembroComissaoParlamentar.Parlamentar.MembroComissoes.Comissao.map( comissao => ({
                 CodigoComissao: comissao.IdentificacaoComissao.CodigoComissao,
