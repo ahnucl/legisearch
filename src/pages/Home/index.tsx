@@ -54,8 +54,9 @@ interface Senator {
 
 const Home = () => {
     const [ ufs, setUfs ] = useState<UF[]>([]);
+    const [ parties, setParties ] = useState<string[]>([]);
     const [ filteredUf, setFilteredUf ] = useState('0');
-    const [ filteredParty, setFilteredParty ] = useState('');
+    const [ filteredParty, setFilteredParty ] = useState('0');
     const [ filteredName, setFilteredName ] = useState('');
     const [ senators, setSenators ] = useState<Senator[]>([]);
 
@@ -88,8 +89,12 @@ const Home = () => {
                     officialSite: parlamentar.IdentificacaoParlamentar.UrlPaginaParlamentar
                 })
             );
-
+            
+            const partiesWithRepeat = senators.map(senator => senator.party)
+            const parties = partiesWithRepeat.filter( (item, index) =>  partiesWithRepeat.indexOf(item) === index );
+            
             setSenators(senators);
+            setParties(parties);
         })
     }, []);
 
@@ -98,9 +103,9 @@ const Home = () => {
         setFilteredUf(ufToFilter);
     }
     
-    function handleInputPartyChange(event: ChangeEvent<HTMLInputElement>) {
-        const filteredText = event.target.value;
-        setFilteredParty(filteredText);
+    function handlePartyChange(event: ChangeEvent<HTMLSelectElement>){
+        const partyToFilter = event.target.value;
+        setFilteredParty(partyToFilter);
     }
 
     function handleInputNameChange(event: ChangeEvent<HTMLInputElement>){
@@ -112,8 +117,8 @@ const Home = () => {
    
         return senators
             .filter(senator => filteredUf === '0' || senator.state === filteredUf )
-            .filter(senator => filteredParty === '' || (new RegExp(filteredParty, 'i')).test(senator.party))
-            .filter(senator => filteredName === '0' || (new RegExp(filteredName,'i').test(senator.name)))
+            .filter(senator => filteredParty === '0' || senator.party === filteredParty )
+            .filter(senator => filteredName === '' || (new RegExp(filteredName,'i').test(senator.name)))
             // Adicionar mais filtros aqui
             
             .map( senator => (  
@@ -146,21 +151,33 @@ const Home = () => {
                                 id="uf"
                                 className="form-control"
                                 value={filteredUf}
-                                onChange={handleUfChange}>
+                                onChange={handleUfChange}
+                        >
                             <option value="0">Estado</option>
                             {ufs.map( uf =>
                                 (<option key={uf.initials} value={uf.initials}> {`${uf.name} - ${uf.initials}`} </option>)
                             )}
                         </select>
                     </div>
+                    {
+                    /**
+                        Ajustes a partir daqui
+                    */
+                    }
                     <div className="form-group col-sm-3">
-                        <input  name="partido"
+                        <select  name="partido"
                                 id="partido"
                                 className="form-control"
-                                placeholder="Partido"
-                                onChange={handleInputPartyChange}
-                        />
+                                value={filteredParty}
+                                onChange={handlePartyChange}
+                        >
+                            <option value="0">Partido</option>
+                            {parties.map( party => (
+                                <option key={party} value={party}>{party}</option>
+                            ))}
+                        </select>
                     </div>
+                    {/** */}
                     <div className="form-group col-sm-3">
                         <input  name="nome"
                                 id="nome"
