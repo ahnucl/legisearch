@@ -1,8 +1,8 @@
 .senatorCard {
     background-color: #CDCDCD;
-    width: 200px;
-    height: 250px;
-    margin: 0 15px 60px;
+    width: 130px;
+    height: 220px;
+    margin: 0 10px 60px;
     border-radius: 20px;
     overflow: hidden;
     border: none;
@@ -10,7 +10,7 @@
 }
 
 .senatorCard .card-body {
-    padding: 20px 20px 0;
+    padding: 12px 12px 0;
 }
 
 /* .senatorCard .card img { */
@@ -63,17 +63,18 @@
     font-weight: 500;
     text-transform: capitalize;
     font-variant: small-caps;
-    font-size: 20px;
+    font-size: 16px;
     margin: 0;
 }
 
 .senatorCard .card-body p {
     font-weight: 300;
-    font-size: 16px;
+    font-size: 12px;
     margin: 0;
 }
 
 .senatorCard .membership {
     flex: 1;
+    font-size: 12px;
     /* margin-bottom: 15px; */
 }

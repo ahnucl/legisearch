@@ -17,6 +17,7 @@ body {
     background-color: var(--theme-grey);
     overflow: scroll;
     -ms-overflow-style: none;
+    /* padding-top: 75px; */
 }
 
 body::-webkit-scrollbar {

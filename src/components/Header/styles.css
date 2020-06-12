@@ -1,5 +1,5 @@
 header{
-    height: 115px;
+    height: 75px;
     background-color: var(--theme-blue);
     display: flex;
     flex-direction: column;
