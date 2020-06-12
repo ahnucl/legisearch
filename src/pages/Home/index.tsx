@@ -147,7 +147,7 @@ const Home = () => {
                                 className="form-control"
                                 value={filteredUf}
                                 onChange={handleUfChange}>
-                            <option value="0">Selecione um Estado</option>
+                            <option value="0">Estado</option>
                             {ufs.map( uf =>
                                 (<option key={uf.initials} value={uf.initials}> {`${uf.name} - ${uf.initials}`} </option>)
                             )}
@@ -157,7 +157,7 @@ const Home = () => {
                         <input  name="partido"
                                 id="partido"
                                 className="form-control"
-                                placeholder="Selecione um Partido"
+                                placeholder="Partido"
                                 onChange={handleInputPartyChange}
                         />
                     </div>
@@ -165,7 +165,7 @@ const Home = () => {
                         <input  name="nome"
                                 id="nome"
                                 className="form-control"
-                                placeholder="Digite o nome"
+                                placeholder="Nome"
                                 onChange={handleInputNameChange}
                         />
                     </div>
