@@ -41,7 +41,7 @@ interface UF {
 }
 
 interface Senator {
-    number: number;
+    senatorNumber: number;
     name: string;
     completeName: string;
     party: string;
@@ -82,7 +82,7 @@ const Home = () => {
                     img: 'https'+parlamentar.IdentificacaoParlamentar.UrlFotoParlamentar.slice(4), // Solução ruim? Melhorar!
                     boardMember: parlamentar.IdentificacaoParlamentar.MembroMesa,
                     leadershipMember: parlamentar.IdentificacaoParlamentar.MembroLideranca,
-                    number: parlamentar.IdentificacaoParlamentar.CodigoParlamentar,
+                    senatorNumber: parlamentar.IdentificacaoParlamentar.CodigoParlamentar,
                     state: parlamentar.IdentificacaoParlamentar.UfParlamentar,
                     email: parlamentar.IdentificacaoParlamentar.EmailParlamentar,
                     officialSite: parlamentar.IdentificacaoParlamentar.UrlPaginaParlamentar
@@ -111,12 +111,12 @@ const Home = () => {
             
             // Adicionar filtros acima
             .map( (senator) => (  
-            // <Link to={`/detail?${senator.number}`} // < consultar novamente na página
+            // <Link to={`/detail?${senator.senatorNumber}`} // < consultar novamente na página
             <Link to={{                                 // < dados passados como estado
                 pathname: '/detail',
                 state: senator    
                 }} 
-                  key={senator.number}
+                  key={senator.senatorNumber}
             >
                 <SenatorCard     
                     senatorName={senator.name}
