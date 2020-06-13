@@ -20,6 +20,7 @@ interface Props {
             state: string;
             email: string;
             officialSite: string;
+            gender: string;
         }  
     }
 }
@@ -64,7 +65,7 @@ const Detail: React.FC<Props> = (props) => {
     const [ iconTitular, setIconTitular ] = useState(<FiChevronUp/>); // o TS não está acusando aqui, mas seria interessante descobrir que tipo é esse
     const [ iconSuplente, setIconSuplente ] = useState(<FiChevronUp/>);
         
-    const { senatorNumber, name, completeName, party, img, boardMember, leadershipMember, state, email, officialSite } = props.location.state;
+    const { senatorNumber, name, completeName, party, img, boardMember, leadershipMember, state, email, officialSite, gender } = props.location.state; // desestruturando aqui
 
     useEffect(() => {
         axios.get<ComissaoResponse>(`https://legis.senado.leg.br/dadosabertos/senador/${senatorNumber}/comissoes.json`).then( response => {
@@ -98,7 +99,7 @@ const Detail: React.FC<Props> = (props) => {
                     </div>
                     {/* <div className="gap"></div> */}
                     <div className="dados">
-                        <h3 className="row">{`Senador ${name}`}</h3>
+                        <h3 className="row">{`Senador${gender === 'Feminino' ? 'a' : ''} ${name}`}</h3>
 
                         <div className="membership row ">
                             { boardMember === 'Sim' ? (

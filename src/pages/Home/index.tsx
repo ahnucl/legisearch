@@ -21,6 +21,7 @@ interface SenadorListaResponse {
                         CodigoParlamentar: number;
                         NomeParlamentar: string;
                         NomeCompletoParlamentar: string;
+                        SexoParlamentar: string;
                         UrlFotoParlamentar: string;
                         UrlPaginaParlamentar: string;
                         EmailParlamentar: string;
@@ -50,6 +51,7 @@ interface Senator {
     state: string;
     email: string;
     officialSite: string;
+    gender: string;
 }
 
 const Home = () => {
@@ -86,7 +88,8 @@ const Home = () => {
                     senatorNumber: parlamentar.IdentificacaoParlamentar.CodigoParlamentar,
                     state: parlamentar.IdentificacaoParlamentar.UfParlamentar,
                     email: parlamentar.IdentificacaoParlamentar.EmailParlamentar,
-                    officialSite: parlamentar.IdentificacaoParlamentar.UrlPaginaParlamentar
+                    officialSite: parlamentar.IdentificacaoParlamentar.UrlPaginaParlamentar,
+                    gender: parlamentar.IdentificacaoParlamentar.SexoParlamentar
                 })
             );
             
